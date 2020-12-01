@@ -24,7 +24,7 @@ public class TestRunner {
 		ExtentReportManager extentreportmanager = new ExtentReportManager();
 		FunctionalLibrary libs = new FunctionalLibrary();
 		extentreportmanager.tearReport();
-		libs.quitDriver();
+	//	libs.quitDriver();
 
 	}
 

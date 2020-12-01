@@ -17,9 +17,18 @@ public class LaunchStepDefinition extends LaunchPageFactory {
 		extentreportmanager.invokeReport(testCaseName);
 		extentreportmanager.componenttHeading(TestCaseDescription);
 		try {
-
+			
+			drivermanager.OpeningCommendPrompt();
 			drivermanager.getDriver();
-
+		/*	try {
+				 
+				
+			} catch (Exception e) {
+				Thread.sleep(2000);
+				// TODO: handle exception
+		//		drivermanager.OpeningCommendPrompt();
+		//		drivermanager.getDriver();
+			}*/
 			if(getProperty("GET_DATA_FROM_EXCEL").equalsIgnoreCase("True")&& getProperty("GET_DATA_FROM_EXCEL")!="")
 			{
 				getTestCaseName(sheetName, testCaseName);	
