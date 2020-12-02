@@ -126,19 +126,19 @@ public class DriverManager extends FunctionalLibrary{
 				options.addArguments("--disable-infobars");
 				options.addArguments("--enable-precise-memory-info");
 				options.addArguments("--disable-popup-blocking");
-				Map<String, Object> prefs = new HashMap<String, Object>();
-				prefs.put("credentials_enable_service", false);
-				prefs.put("profile.password_manager_enabled", false);
-				options.setExperimentalOption("prefs", prefs);
-				DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
-				chromeCapabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
-				chromeCapabilities.setCapability("chrome.switches", Arrays.asList("--ignore-certificate-errors"));
-				chromeCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
-				chromeCapabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,
-						UnexpectedAlertBehaviour.ACCEPT);
-				System.out.println(chromeCapabilities.getVersion());
-				Runtime.getRuntime().exec("TASKKILL /IM chrome.exe /F"); 
-				Runtime.getRuntime().exec("taskkill /im chromedriver.exe /f "); 
+		//		Map<String, Object> prefs = new HashMap<String, Object>();
+		//		prefs.put("credentials_enable_service", false);
+		//		prefs.put("profile.password_manager_enabled", false);
+		//		options.setExperimentalOption("prefs", prefs);
+		//		DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
+		//		chromeCapabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+		//		chromeCapabilities.setCapability("chrome.switches", Arrays.asList("--ignore-certificate-errors"));
+		//		chromeCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		//		chromeCapabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,
+		//				UnexpectedAlertBehaviour.ACCEPT);
+		//		System.out.println(chromeCapabilities.getVersion());
+		//		Runtime.getRuntime().exec("TASKKILL /IM chrome.exe /F"); 
+		//		Runtime.getRuntime().exec("taskkill /im chromedriver.exe /f "); 
 				driver = new ChromeDriver();
 				driver.manage().window().maximize();
 			}
