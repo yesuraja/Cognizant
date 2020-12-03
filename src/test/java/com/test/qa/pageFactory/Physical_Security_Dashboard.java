@@ -221,8 +221,9 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 			clickOnButton(btnPhysicalSecurityApp,"Physical Security Dashboard App");
 			
 			System.out.println("Physical Security Application is Clicked");
+			System.out.println("hello");
 			
-			PASSreport("Clicking on Physical Security Application","Physical Security Application Clicked successfully");
+			//PASSreport("Clicking on Physical Security Application","Physical Security Application Clicked successfully");
 			
 			
 			
@@ -236,8 +237,9 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 	public void ClickonPreviousMonthCheckbox() {
 		try {
 			
-			Thread.sleep(20000);
-			
+			elementTobeClickable(chkboxPreviousMonth, 60, "Previous Month Check box");
+			//Thread.sleep(20000);
+			System.out.println("inside previous month checkbox");
 			WebElement frame1 = driver.findElement(By.xpath("//*[@id='appFrame']")); 
 			driver.switchTo().frame(frame1);
 			System.out.println("Frame 1 switched successfully");
@@ -246,7 +248,7 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 			driver.switchTo().frame(frame2);
 			System.out.println("Frame 2 switched successfully");
 			
-		//	elementTobeClickable(chkboxPreviousMonth, 60, "Previous Month Check box");
+			elementTobeClickable(chkboxPreviousMonth, 60, "Previous Month Check box");
 			Thread.sleep(10000);	
 			chkboxPreviousMonth.click();
 				
@@ -808,7 +810,8 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 			public void ClickonBadgeSummaryMenu() throws Exception {
 				try {
 					
-					Thread.sleep(20000);
+				//	Thread.sleep(20000);
+					elementTobeClickable(chkboxPreviousMonth, 120, "Previous Month Check box");
 					
 					WebElement frame1 = driver.findElement(By.xpath("//*[@id='appFrame']")); 
 					driver.switchTo().frame(frame1);

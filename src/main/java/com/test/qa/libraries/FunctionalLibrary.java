@@ -545,6 +545,7 @@ public class FunctionalLibrary extends GlobalVariables {
 					+ test.addScreenCapture(ScreenshotFilePath));
 			extentreportmanager.tearReport();
 			Assert.fail(exception.getMessage());
+			exception.printStackTrace();			
 		}
 	}
 
@@ -925,7 +926,7 @@ public class FunctionalLibrary extends GlobalVariables {
 	{
 		try
 		{
-			
+//			
 			ScreenshotFilePath =ScreenshotFolderPath+FieldName + "_" + timestamp() + ".jpg";
 			Screenshot.getScreenshot(driver, ScreenshotFilePath);
 			js.executeScript("arguments[0].style.border='1px groove black'", bodytag);
