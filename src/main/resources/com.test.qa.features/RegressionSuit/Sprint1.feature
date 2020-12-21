@@ -75,7 +75,7 @@ Then : Click on Search Button
 And : Click on Physical Security DashboardApp
 Then : Clickon Badge Summary Menu
 Then : Click on Show as table tab
-And : Compare Returned Badge value displayed in Application with DB
+#And : Compare Returned Badge value displayed in Application with DB
 
   
 Examples: 
@@ -255,4 +255,6 @@ And : Compare Client Lost Badge value displayed in Application with DB
   
 Examples: 
 	      | SheetName        | TestCaseName 		  						  		      			    | ApplicationName     |FromDat |ToDat |City_Name|Facility_Name|
-	      | PhysicalSecurity | Compare Client Lost Badge value displayed in Application with DBTC_14    | AppNme			  |FromDate|ToDate|City     |Facility     |	   	            	          	             	          	       	            	          	             	          	        	            	          	             	          	       	            	          	             	          	      	            	          	             	          	       	            	          	             	          	        	            	          	             	          	       	            	          	             	          	      	   	            	          	             	          	       	            	          	             	          	        	            	          	             	          	       	            	          	             	          	      	            	          	             	          	       	            	          	             	          	        	            	          	             	          	       	            	          	             	          
+	      | PhysicalSecurity | Compare Client Lost Badge value displayed in Application with DBTC_14    | AppNme			  |FromDate|ToDate|City     |Facility     |
+	      
+	      

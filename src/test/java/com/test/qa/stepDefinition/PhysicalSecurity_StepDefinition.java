@@ -1,13 +1,16 @@
 package com.test.qa.stepDefinition;
 
 import com.test.qa.pageFactory.Physical_Security_Dashboard;
+import com.test.qa.pageFactory.Raja_Sprint2;
 
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class PhysicalSecurity_StepDefinition {
 	
 	Physical_Security_Dashboard Regsuit1 = new Physical_Security_Dashboard();
+	Raja_Sprint2 Assign = new Raja_Sprint2();
 	
 	@When("^: Enter \"([^\"]*)\" in OneC App Search Field$")
 	public void enter_in_OneC_App_Search_Field(String App_Name) throws Throwable {
@@ -138,4 +141,5 @@ public class PhysicalSecurity_StepDefinition {
 		Regsuit1.Compare_Lost_or_Damage_Client_BadgeValue_Displayed_in_Application_with_DB();
 	}
 	
+		
 }

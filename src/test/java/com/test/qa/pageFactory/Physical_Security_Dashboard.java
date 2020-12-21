@@ -161,11 +161,17 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 	@FindBy (xpath="//button[@class='vcMenuBtn']")
 	public WebElement btnClientBadgeSummary;
 	
+	@FindBy (xpath="//*[@id='custom_toolbar']/div/button/span/div")
+	public WebElement btnMenu;
+	
+	@FindBy (xpath="(//*[@class='white--text v-list-item v-list-item--link theme--light'])[4]")
+	public WebElement btnHome;
 	
 	
 	public void EnterAppNameandClickonSearchButton (String App_Name) throws Exception {
 		try {
 			PageFactory.initElements(driver, this);
+			
 			Thread.sleep(1000);
 			elementTobeClickable(OneCSearch, 10, "One C SearchField");
 			
@@ -209,11 +215,7 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 		try {
 			
 			Thread.sleep(2000);
-			
-	//		WebElement frame1 = driver.findElement(By.xpath("//*[@id='appFrame']")); 
-	//		driver.switchTo().frame(frame1);
-	//		System.out.println("Frame 1 switched successfully");
-			
+						
 			elementTobeClickable(btnPhysicalSecurityApp, 40, "Physical Security App");
 			
 			
@@ -221,7 +223,22 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 			clickOnButton(btnPhysicalSecurityApp,"Physical Security Dashboard App");
 			
 			System.out.println("Physical Security Application is Clicked");
-			System.out.println("hello");
+			Thread.sleep(10000);
+			
+			WebElement frame1 = driver.findElement(By.xpath("//*[@id='appFrame']")); 
+			driver.switchTo().frame(frame1);
+			System.out.println("Frame 1 switched successfully");
+			
+			btnMenu.click();
+			System.out.println("Menu button clicked successfully");
+			
+			Thread.sleep(1000);
+			
+			btnHome.click();
+			System.out.println("Home button Clicked successfully");
+			
+			Thread.sleep(1000);
+			
 			
 			//PASSreport("Clicking on Physical Security Application","Physical Security Application Clicked successfully");
 			
@@ -237,12 +254,12 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 	public void ClickonPreviousMonthCheckbox() {
 		try {
 			
-			elementTobeClickable(chkboxPreviousMonth, 60, "Previous Month Check box");
+//			elementTobeClickable(chkboxPreviousMonth, 60, "Previous Month Check box");
 			//Thread.sleep(20000);
 			System.out.println("inside previous month checkbox");
-			WebElement frame1 = driver.findElement(By.xpath("//*[@id='appFrame']")); 
-			driver.switchTo().frame(frame1);
-			System.out.println("Frame 1 switched successfully");
+//			WebElement frame1 = driver.findElement(By.xpath("//*[@id='appFrame']")); 
+//			driver.switchTo().frame(frame1);
+//			System.out.println("Frame 1 switched successfully");
 			
 			WebElement frame2 = driver.findElement(By.xpath("//*[@id='embedContainer']/iframe"));
 			driver.switchTo().frame(frame2);
@@ -512,8 +529,8 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 			FacilityDrpdown.click();
 		//	Thread.sleep(1000);
 			
-		/*	String SearchFacility = excelUtil.getCellData(testcase_sheetName, testcase_rowNumber , SearchFacilty);
-			enterValueIntoTextField(txtSearchFacility,"Search Facility",SearchFacility);*/
+			String SearchFacility = excelUtil.getCellData(testcase_sheetName, testcase_rowNumber , SearchFacilty);
+			enterValueIntoTextField(txtSearchFacility,"Search Facility",SearchFacility);
 			
 			Thread.sleep(3000);
 
@@ -810,33 +827,46 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 			public void ClickonBadgeSummaryMenu() throws Exception {
 				try {
 					
-				//	Thread.sleep(20000);
-					elementTobeClickable(chkboxPreviousMonth, 120, "Previous Month Check box");
+					Thread.sleep(10000);
+	//				elementTobeClickable(chkboxPreviousMonth, 180, "Previous Month Check box");
+//					WebDriverWait waits = new WebDriverWait(driver, 180);
+//					waits.until(ExpectedConditions.elementToBeClickable(btnBadgeSummary));
 					
-					WebElement frame1 = driver.findElement(By.xpath("//*[@id='appFrame']")); 
-					driver.switchTo().frame(frame1);
-					System.out.println("Frame 1 switched successfully"); 
 					
-					WebElement frame2 = driver.findElement(By.xpath("//*[@id='embedContainer']/iframe[1]"));
-					driver.switchTo().frame(frame2);
-					System.out.println("Frame 2 switched successfully");  
+					try {
+	/*					WebElement frame1 = driver.findElement(By.xpath("//*[@id='appFrame']")); 
+						driver.switchTo().frame(frame1);
+						System.out.println("Frame 1 switched successfully"); */
 						
-					Thread.sleep(5000);
+						WebElement frame2 = driver.findElement(By.xpath("//*[@id='embedContainer']/iframe[1]"));
+						driver.switchTo().frame(frame2);
+						System.out.println("Frame 2 switched successfully");
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}  
+						
+					Thread.sleep(10000);
 					
 					
 				//	action.build().perform();
 					
-				//	menu.click();  
+				//	menu.click();
+//					WebDriverWait waits1 = new WebDriverWait(driver, 30);
+//					waits.until(ExpectedConditions.elementToBeClickable(btnBadgeSummary));
 					
-				//	elementTobeClickable(btnBadgeSummary, 30, "Badge Summary Menu Button");
+	//				elementTobeClickable(btnBadgeSummary, 30, "Badge Summary Menu Button");
 					
 					Actions action = new Actions(driver);
-					WebElement menu = driver.findElement(By.xpath("//*[text()='BADGE SUMMARY - GENERAL VISITORS']"));
+					WebElement menu = driver.findElement(By.xpath("//*[@title='BADGE SUMMARY - GENERAL VISITORS']"));
 					action.moveToElement(menu);
-					action.build().perform(); 
-					menu.click();
-					
-					clickOnButton(btnBadgeSummary,"Badge Summary Menu Button");
+					action.build().perform();
+					Thread.sleep(5000);
+					menu.click();	
+					System.out.println("Badge General visitor clicked");
+					Thread.sleep(5000);
+					btnBadgeSummary.click();
+			//		clickOnButton(btnBadgeSummary,"Badge Summary Menu Button");
 					System.out.println("Badge Summary Menu Button button clicked successfully");
 					PASSreport("Badge Summary Menu Button","Badge Summary Menu Button clicked successfully");
 				}catch (Exception e) {
@@ -847,8 +877,8 @@ public class Physical_Security_Dashboard extends FunctionalLibrary{
 			
 			public void ClickonShowasTableTab() throws Exception {
 				try {
-					elementTobeClickable(tabShowasTable, 20, "Show as table TAB");
-					
+				//	elementTobeClickable(tabShowasTable, 20, "Show as table TAB");
+					Thread.sleep(3000);
 					clickOnButton(tabShowasTable,"Show as table TAB");
 					System.out.println("Show as table TAB clicked successfully");
 					PASSreport("Show as table TAB","Show as table TAB clicked successfully");
